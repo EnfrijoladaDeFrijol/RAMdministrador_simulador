@@ -63,7 +63,7 @@ def segmentacion(ram_disp):
         pila = miProceso*pila_porcentaje
         
         # Impresiòn de datos
-        print()
+        print() # NOTA: Arreglar los decimales
         print("\t\tDatos (50%) ...... {}".format(datos))
         print("\t\tCòdigo (30%) ..... {}".format(codigo))
         print("\t\tPila (20%) ....... {}".format(pila))
@@ -139,10 +139,9 @@ def main():
         elif opc == "3":
             limpiarPantalla()
             ram_disp = paginacion(ram_disp)
-        elif opc == "4":
+        elif opc == "4": # Segmentaciòn
             limpiarPantalla()
             ram_disp = segmentacion(ram_disp)
-            imprimirLinea()
         elif opc == "5":
             print("salir")
             break

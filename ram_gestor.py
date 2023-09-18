@@ -1,5 +1,6 @@
 import os
 import sys
+import random
 
 # -----------------------------------------------
 
@@ -46,6 +47,19 @@ def limpiarPantalla():
 def solicitarProceso():
     proceso = int(input("\t   Ingresa el tamaño del proceso: "))
     return proceso
+
+# --------- ( PARTIIÓN ESTÁTICA ) --------------------
+# Hacemos las particiones de manera aleatoria
+# Par esta parte vamos a usar 5 particiones siempre para evitar problemas con esto
+def particionEstatica(ram_disp):
+    imprimirLinea()
+    print("\n\t  P A R T I C I Ó N   E S T Á T I C A")
+    print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
+    particiones_disp = [ram_disp*0.50, ram_disp*0.25, ram_disp*0.15, ram_disp*0.10]
+
+    print("Particiones disponibles: ",particiones_disp)
+    miProceso = solicitarProceso()
+    print("\t\tColocando el proceso...")
 
 # --------- ( SEGMENTACIÒN ) --------------------
 def segmentacion(ram_disp):
@@ -133,7 +147,8 @@ def main():
         opc = input("\t\t>> ")
 
         if opc == "1":
-            print("Partciòn estpatica...")
+            limpiarPantalla()
+            particionEstatica(ram_disp)
         elif opc == "2":
             print("Particionamiento dinamico")
         elif opc == "3":

@@ -19,7 +19,7 @@ def imprimirLinea():
 def imprimirDatosRam(ram_total, ram_os,ram_disp):
     print("\n\tRAM total ................................. {}".format(ram_total))
     print("\tRAM usada por el sistema operativo ........ {}".format(ram_os))
-    print("\tRAM disponible ............................ {}".format(ram_disp))
+    print("\tRAM disponbile ............................ {}".format(ram_disp))
     print()
 
 def imprimirMenu():
@@ -61,6 +61,8 @@ def particionEstatica(ram_disp):
     miProceso = solicitarProceso()
     print("\t\tColocando el proceso...")
 
+    
+
 # --------- ( SEGMENTACIÒN ) --------------------
 def segmentacion(ram_disp):
     imprimirLinea()
@@ -84,11 +86,8 @@ def segmentacion(ram_disp):
         print("\t\t------------------------")
         print("\t\tTotal (100%) ...... {}".format(miProceso))
         print()
-        ram_disp = ram_disp - miProceso
     else:
         print("\n\t [ADVERTENCIA] Memoria insuficiente")
-    
-    return ram_disp
 
 # ------------ ( PAGINACIÒN ) ------------------
 def calcularPaginacion(diferecia_paginacion, num_paginacion):
@@ -104,7 +103,7 @@ def paginacion(ram_disp):
         print("\t\tOpciones:   2   4   16   32 \n\t\t\t 0 (cancelar)")
         # Pedimos el dato pero lo guardamos como string para tener en cuenta los diferentes errores que 
         # puede llegar a producir y ya despuès lo recasteamos a int para poder operarlo
-        division = input("\n\t   Ingresa el tamaño de la divisiòn: ")
+        division = input("\n\t   Ingresa el tamaño de la divsiiòn: ")
         imprimirLinea()
         if (division == "2" or division == "4" or division == "16" or division == "32"):
             division = int(division) # Aquì casteamos e string a un int para poder operarlo
@@ -129,8 +128,6 @@ def paginacion(ram_disp):
             print("\n\t\t[ADVERTENCIA] Opciòn no vàlida\n")
         #miProceso = solicitarProceso()
 
-    return ram_disp
-
 # -----------------------------------------------
 
 def main():
@@ -153,10 +150,10 @@ def main():
             print("Particionamiento dinamico")
         elif opc == "3":
             limpiarPantalla()
-            ram_disp = paginacion(ram_disp)
+            paginacion(ram_disp)
         elif opc == "4": # Segmentaciòn
             limpiarPantalla()
-            ram_disp = segmentacion(ram_disp)
+            segmentacion(ram_disp)
         elif opc == "5":
             print("salir")
             break

@@ -55,11 +55,22 @@ def particionEstatica(ram_disp):
     imprimirLinea()
     print("\n\t  P A R T I C I Ó N   E S T Á T I C A")
     print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
-    particiones_disp = [ram_disp*0.50, ram_disp*0.25, ram_disp*0.15, ram_disp*0.10]
+    particiones_disp = [ram_disp*0.02,  ram_disp*0.08, ram_disp*0.10, ram_disp*0.25, ram_disp*0.50]
 
     print("Particiones disponibles: ",particiones_disp)
-    miProceso = solicitarProceso()
-    print("\t\tColocando el proceso...")
+    while (len(particiones_disp) > 0):
+        miProceso = solicitarProceso()
+        for i in range(len(particiones_disp)):
+            if (miProceso <= particiones_disp[i]):
+                inidice_Proceso = particiones_disp.index(particiones_disp[i])
+                del particiones_disp[inidice_Proceso]
+                print(particiones_disp)
+                break
+            else:
+                print("\t[ADVERTENCIA] El proceso es demasiado grande, no se puede asignar a una partición")
+                break
+                
+    #print("\t\tColocando el proceso...")
 
     
 
@@ -69,14 +80,11 @@ def segmentacion(ram_disp):
     print("\n\t\t S E G M E N T A C I Ò N ")
     print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
     miProceso = solicitarProceso()
-    datos_porcentaje = 0.5
-    codigo_porcentaje = 0.3
-    pila_porcentaje = 0.2
     #print(miProceso)
     if (miProceso <= ram_disp): # En caso de que haya espacio
-        datos = miProceso*datos_porcentaje
-        codigo = miProceso*codigo_porcentaje
-        pila = miProceso*pila_porcentaje
+        datos = miProceso*0.5   # 50%
+        codigo = miProceso*0.3  # 30%
+        pila = miProceso*0.2    # 20%
         
         # Impresiòn de datos
         print() # NOTA: Arreglar los decimales

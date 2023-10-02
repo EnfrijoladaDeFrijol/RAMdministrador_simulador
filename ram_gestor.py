@@ -81,12 +81,35 @@ def particionEstatica(ram_disp):
 
     #print("\t\tColocando el proceso...")
 
-    
+# --------- ( PARTIIÓN DINÁMICA ) --------------------
+def particionDinamico(ram_disp):
+    imprimirLinea()
+    print("\n\t   P A R T I C I Ó N   D I N Á M I C A")
+    print("\t\t  ingresa '0' ṕara salir")
+    imprimirLinea()
+    while True:
+        print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
+        miProceso = solicitarProceso()
+        if (miProceso == 0):
+            print("\n\t\t[MENSAJE] Saliendo...\n\n")
+            break
+        elif (miProceso <= ram_disp):
+            ram_disp = ram_disp - miProceso
+        elif (miProceso > ram_disp):
+            print("\n\t[ERROR] Tamaño de proceso sobrepasa la RAM")
+            break
+        elif (ram_disp == 0):
+            print("\n\t[ERROR] Se acabò la memoria RAM")
+            break
+        else:
+            print("\n\t[ADVERTENCIA] Ingrese un valor válido")
+            break
 
 # --------- ( SEGMENTACIÒN ) --------------------
 def segmentacion(ram_disp):
     imprimirLinea()
     print("\n\t\t S E G M E N T A C I Ò N ")
+    imprimirLinea()
     print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
     miProceso = solicitarProceso()
     #print(miProceso)
@@ -114,6 +137,7 @@ def calcularPaginacion(diferecia_paginacion, num_paginacion):
 def paginacion(ram_disp):
     imprimirLinea()
     print("\n\t\t   P A G I N A C I Ò N \n")
+    imprimirLinea()
 
     while True:
         print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
@@ -164,7 +188,8 @@ def main():
             limpiarPantalla()
             particionEstatica(ram_disp)
         elif opc == "2":
-            print("Particionamiento dinamico")
+            limpiarPantalla()
+            particionDinamico(ram_disp)
         elif opc == "3":
             limpiarPantalla()
             paginacion(ram_disp)
@@ -175,6 +200,6 @@ def main():
             print("salir")
             break
         else:
-            print("\t\t[ADVERTENCIA] Opciòn no vàlida")
+            print("\n\t[ADVERTENCIA] Opciòn no vàlida...\n\n")
 
 main()

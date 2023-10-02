@@ -63,7 +63,10 @@ def particionEstatica(ram_disp):
     while (len(particiones_disp)>0):
         miProceso = solicitarProceso()
         if (miProceso == 0):
-            print("[ADVERTENCIA] Saliendo de partición estática")
+            print("\t[ADVERTENCIA] Saliendo de partición estática")
+            break
+        if (miProceso > particiones_disp[len(particiones_disp)-1]):
+            print(("\n\t[ERROR] EL proceso: ingresado: {} es demasiado grande").format(miProceso))
             break
         for i in range(len(particiones_disp)):
             if ((miProceso <= particiones_disp[i]) and (miProceso != 0) ):

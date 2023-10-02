@@ -54,22 +54,28 @@ def solicitarProceso():
 def particionEstatica(ram_disp):
     imprimirLinea()
     print("\n\t  P A R T I C I Ó N   E S T Á T I C A")
+    print("\t\t  ingresa '0' ṕara salir")
+    imprimirLinea()
     print("\n\tRAM disponible ............................ {}\n".format(ram_disp))
     particiones_disp = [ram_disp*0.02,  ram_disp*0.08, ram_disp*0.10, ram_disp*0.25, ram_disp*0.50]
 
-    print("Particiones disponibles: ",particiones_disp)
-    while (len(particiones_disp) > 0):
+    print("  Particiones disponibles: ",particiones_disp)
+    while (len(particiones_disp)>0):
         miProceso = solicitarProceso()
+        if (miProceso == 0):
+            print("[ADVERTENCIA] Saliendo de partición estática")
+            break
         for i in range(len(particiones_disp)):
-            if (miProceso <= particiones_disp[i]):
+            if ((miProceso <= particiones_disp[i]) and (miProceso != 0) ):
+                # Obtenemos el indice para borrar esa particion de la lista para simular que ya está ocupada
+                # Y esto lo hacemos en cada delete de algún dato porque por lo mismo se redimensiona
                 inidice_Proceso = particiones_disp.index(particiones_disp[i])
                 del particiones_disp[inidice_Proceso]
-                print(particiones_disp)
+                print(("\n\t[MENSAJE] Proceso con tamaño {} asignado con éxito...").format(miProceso))
+                print("\n\tParticiones disponibles: ",particiones_disp)
                 break
-            else:
-                print("\t[ADVERTENCIA] El proceso es demasiado grande, no se puede asignar a una partición")
-                break
-                
+            
+
     #print("\t\tColocando el proceso...")
 
     

@@ -31,8 +31,7 @@ def imprimirMenu():
     print("\t\t4. Segmentaciòn")
     print("\t\t5. Salir")
 
-def limpiarPantalla():
-    sistema_operativo = sys.platform
+def limpiarPantalla(sistema_operativo):
     if (sistema_operativo == "win32"):
         os.system("cls")
     elif (sistema_operativo == "linux" or sistema_operativo == "linux2"):
@@ -40,7 +39,8 @@ def limpiarPantalla():
     elif (sistema_operativo == "darwin"):
         os.system("clear")
     else:
-        print("ERROR")
+        imprimirLinea()
+        imprimirLinea()
 
 # -----------------------------------------------
 
@@ -172,8 +172,8 @@ def paginacion(ram_disp):
 # -----------------------------------------------
 
 def main():
-    
-    limpiarPantalla()
+    sistema_operativo = sys.platform
+    limpiarPantalla(sistema_operativo)
     ram_total = 2048
     ram_os = 1024
     ram_disp = ram_total - ram_os
@@ -186,16 +186,16 @@ def main():
         opc = input("\t\t>> ")
 
         if opc == "1":
-            limpiarPantalla()
+            limpiarPantalla(sistema_operativo)
             particionEstatica(ram_disp)
         elif opc == "2":
-            limpiarPantalla()
+            limpiarPantalla(sistema_operativo)
             particionDinamico(ram_disp)
         elif opc == "3":
-            limpiarPantalla()
+            limpiarPantalla(sistema_operativo)
             paginacion(ram_disp)
         elif opc == "4": # Segmentaciòn
-            limpiarPantalla()
+            limpiarPantalla(sistema_operativo)
             segmentacion(ram_disp)
         elif opc == "5":
             print("salir")

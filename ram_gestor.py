@@ -67,7 +67,7 @@ def particionEstatica(ram_disp):
             break
         if (miProceso > particiones_disp[len(particiones_disp)-1]):
             print(("\n\t[ERROR] EL proceso: ingresado: {} es demasiado grande").format(miProceso))
-            break
+            
         for i in range(len(particiones_disp)):
             if ((miProceso <= particiones_disp[i]) and (miProceso != 0) ):
                 # Obtenemos el indice para borrar esa particion de la lista para simular que ya está ocupada
@@ -172,6 +172,7 @@ def paginacion(ram_disp):
 # -----------------------------------------------
 
 def main():
+    
     limpiarPantalla()
     ram_total = 2048
     ram_os = 1024

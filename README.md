@@ -6,9 +6,10 @@ Examen de la materia Sistemas Operativos el cual aplica distintos algoritmos de 
 
 ## Métodos de admisntración usados
 - Particición estática
-- 
+- Partición dinámica
 - Segmentación
 - Paginación
 
 ### Saludos espediales
 - Un saludo a Edil :)
+- Un saludo a mi Miri bonita :heart:

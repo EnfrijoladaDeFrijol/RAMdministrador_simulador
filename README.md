@@ -10,6 +10,9 @@ Para la realización de este programa se tomaron en cuenta las notas de clase y 
 - Segmentación
 - Paginación
 
+## Importane
+En ocasiones la impresión puede perderse, solo es cuestión de subir en la terminal donde se está ejecutando para ver los resultados
+
 ### Saludos espediales
 - Un saludo a Edil :)
 - Un saludo a mi Miri bonita :heart:

@@ -11,6 +11,7 @@ def imprimirTitulo():
         |   / / _ \| |\/| | / _` / -_|_-<  _/ _ \ '_| 
         |_|_\/_/ \_\_|  |_| \__, \___/__/\__\___/_|   
                             |___/                     
+    \t\t\tAutor -> Luis Arturo Meza Sánhcez
     """)
     
 def imprimirLinea():
@@ -198,9 +199,9 @@ def main():
             limpiarPantalla(sistema_operativo)
             segmentacion(ram_disp)
         elif opc == "5":
-            print("salir")
+            print("\n\t [ADVERTENCIA] Saliendo...")
             break
         else:
-            print("\n\t[ADVERTENCIA] Opciòn no vàlida...\n\n")
+            print("\n\t\t[ADVERTENCIA] Opciòn no vàlida...\n\n")
 
 main()

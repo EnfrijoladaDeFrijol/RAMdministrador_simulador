@@ -152,7 +152,7 @@ def paginacion(ram_disp):
             num_paginacion = ram_disp/division # 1024 / 16
             while True:
                 if (num_paginacion < 0): # Caso proceso introducido excede lo disponibe
-                    print("\n\t[ERROR] Es demasiado grande no va a entrar")
+                    print("\n\t[ERROR] Se sobrepasó el espacio disponible")
                     break
                 elif (num_paginacion == 0): # Caso cuando justo se ocupo el espacio exacto
                     print("\n\t\tPaginaciòn disponible: ",num_paginacion)
